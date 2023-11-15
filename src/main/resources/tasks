@@ -1,0 +1,7 @@
+протестировать repository,
+
+@Transactional в repository
+
+Dto, сервисы возвращают эти dto, mapper
+
+проверить на LAZY в user password
