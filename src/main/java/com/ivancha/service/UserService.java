@@ -54,19 +54,6 @@ public class UserService {
                 .map(userReadMapper::map);
     }
 
-
-    @Transactional
-    public Optional<UserReadDto> findById(Integer id) {
-
-        // оптимизированный запрос сразу с password
-        Map<String, Object> properties = Map.of(
-                GraphSemantic.LOAD.getJakartaHintName(), userRepository.graphWithPassword()
-        );
-        return userRepository.findById(id, properties)
-                .map(userReadMapper::map);
-    }
-
-
     @Transactional
     public List<UserReadDto> findAll() {
 

@@ -1,8 +1,10 @@
-package com.ivancha.validation;
+package com.ivancha.validation.impl;
 
 import com.ivancha.dto.PasswordStatContainer;
+import com.ivancha.validation.PasswordStatMatches;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
+
 
 public class PasswordStatValidator implements ConstraintValidator<PasswordStatMatches, PasswordStatContainer> {
 

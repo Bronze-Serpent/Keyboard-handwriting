@@ -21,10 +21,10 @@ public class Password implements BaseEntity<Integer> {
     private String value;
 
     // по идее без optional = false запрос будет выполняться даже с LAZY, чтобы проверить есть ли значение
-    @OneToOne(optional = false, fetch = FetchType.LAZY)
+    @OneToOne(fetch = FetchType.LAZY)
     private User user;
 
-    @ElementCollection
+    @ElementCollection()
     @CollectionTable(name = "time_between_presses")
     @MapKeyColumn(name = "gap_number")
     @Column(name = "time")

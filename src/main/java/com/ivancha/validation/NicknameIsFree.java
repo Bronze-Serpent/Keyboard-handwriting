@@ -1,5 +1,6 @@
 package com.ivancha.validation;
 
+import com.ivancha.validation.impl.FreeUsernameValidator;
 import jakarta.validation.Constraint;
 
 import java.lang.annotation.ElementType;

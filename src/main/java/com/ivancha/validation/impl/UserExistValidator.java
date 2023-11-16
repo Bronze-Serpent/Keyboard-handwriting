@@ -1,7 +1,8 @@
-package com.ivancha.validation;
+package com.ivancha.validation.impl;
 
 import com.ivancha.dto.UserReferring;
 import com.ivancha.repository.UserRepository;
+import com.ivancha.validation.UserExist;
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintValidatorContext;
 import lombok.RequiredArgsConstructor;

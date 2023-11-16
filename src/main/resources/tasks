@@ -1,7 +1,3 @@
-протестировать repository,
+протестировать validation
 
-@Transactional в repository
-
-Dto, сервисы возвращают эти dto, mapper
-
-проверить на LAZY в user password
+потом интеграционное тестирование сервисов (уже с прокси)

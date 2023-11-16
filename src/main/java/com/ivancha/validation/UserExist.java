@@ -1,5 +1,6 @@
 package com.ivancha.validation;
 
+import com.ivancha.validation.impl.UserExistValidator;
 import jakarta.validation.Constraint;
 
 import java.lang.annotation.ElementType;
