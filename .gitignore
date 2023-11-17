@@ -1,3 +1,4 @@
 /target/
 /.idea/
 /keyboard-handwriting.iml
+/src/main/java/com/ivancha/Main.java
