@@ -1,19 +1,15 @@
 package com.ivancha.validation;
 
-import com.ivancha.dto.PasswordCreateDto;
 import com.ivancha.dto.UserCreateDto;
 import com.ivancha.entity.User;
 import com.ivancha.repository.UserRepository;
-import com.ivancha.validation.impl.FreeUsernameValidator;
+import com.ivancha.validation.impl.FreeNicknameValidator;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.Map;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -21,13 +17,13 @@ import static org.mockito.Mockito.doReturn;
 
 
 @ExtendWith(MockitoExtension.class)
-public class FreeUsernameValidatorTest {
+public class FreeNicknameValidatorTest {
 
     @Mock
     private UserRepository userRepository;
 
     @InjectMocks
-    private FreeUsernameValidator freeUsernameValidator;
+    private FreeNicknameValidator freeNicknameValidator;
 
     @Test
     public void shouldValidateObject() {
@@ -36,9 +32,7 @@ public class FreeUsernameValidatorTest {
         doReturn(Optional.empty())
                 .when(userRepository).findByNickname(nickname);
 
-        var data = new UserCreateDto(nickname);
-
-        var validResult = freeUsernameValidator.isValid(data, null);
+        var validResult = freeNicknameValidator.isValid(nickname, null);
 
         assertThat(validResult).isTrue();
     }
@@ -51,9 +45,7 @@ public class FreeUsernameValidatorTest {
         doReturn(Optional.of(new User()))
                 .when(userRepository).findByNickname(nickname);
 
-        var data = new UserCreateDto(nickname);
-
-        var validResult = freeUsernameValidator.isValid(data, null);
+        var validResult = freeNicknameValidator.isValid(nickname, null);
 
         assertThat(validResult).isFalse();
     }

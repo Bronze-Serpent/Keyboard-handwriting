@@ -1,4 +1,4 @@
-package com.ivancha.gui.panel;
+package com.ivancha.gui.window;
 
 import com.ivancha.dto.PasswordCreateDto;
 import com.ivancha.dto.PasswordReadDto;
@@ -18,16 +18,9 @@ import java.util.Map;
 
 public class RegistrationPanel extends JPanel {
 
-    private final UserService userService;
-    private final PasswordService passwordService;
-
-
     public RegistrationPanel(UserService userService, PasswordService passwordService) {
 
         super(new MigLayout());
-
-        this.userService = userService;
-        this.passwordService = passwordService;
 
         JLabel registerLbl = new JLabel("Зарегистрируемся");
         this.add(registerLbl, "span, center, gapbottom 15");
@@ -62,6 +55,7 @@ public class RegistrationPanel extends JPanel {
 
                 usernameTextField.setText("");
                 passwordTextField.setText("");
+                keyStatistics.clear();
             }
 
             public Map<Integer, Integer> listToMapWithOrder(List<Long> list) {
@@ -85,11 +79,15 @@ public class RegistrationPanel extends JPanel {
 
                     UserReadDto userDto = userInfoList.get(i);
                     PasswordReadDto passwordDto = userDto.passwordReadDto();
-                    sb.append(i).append(": ");
-                    sb.append("Имя пользователя: ").append(userDto.nickname());
-                    sb.append("\tПароль: ").append(passwordDto.value());
-                    sb.append("\tВремя нажатия клавиш: ").append(passwordDto.keyPressTime());
-                    sb.append("\tВремя между нажатиями клавиш: ").append(passwordDto.timeBetweenPresses());
+                    sb.append(String.format("%d: Имя пользователя: %-15s Пароль: %-10s Время нажатия клавиш: %-50S Время между нажатиями клавиш: %-50s",
+                            i,
+                            userDto.nickname(),
+                            passwordDto.value(),
+                            passwordDto.keyPressTime(),
+                            passwordDto.timeBetweenPresses())
+                    );
+                    sb.append('\n');
+
                 }
                 JOptionPane.showMessageDialog(RegistrationPanel.this, sb.toString());
             }

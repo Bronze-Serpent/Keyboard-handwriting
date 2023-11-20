@@ -21,4 +21,4 @@ public record PasswordCreateDto(
         Map<Integer, Integer> timeBetweenPresses,
         Map<Integer, Integer> keyPressTime
 
-) implements UserReferring, PasswordStatContainer { }
+) implements PasswordStatContainer { }

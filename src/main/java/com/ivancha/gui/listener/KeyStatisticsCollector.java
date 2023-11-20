@@ -44,4 +44,10 @@ public class KeyStatisticsCollector implements KeyListener {
     }
 
     public void keyPressed(KeyEvent e) {}
+
+
+    public void clear() {
+        timeBetweenPresses.clear();
+        pressTimeList.clear();
+    }
 }

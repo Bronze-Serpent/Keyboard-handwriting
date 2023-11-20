@@ -9,8 +9,11 @@
     <version>1.0</version>
 
     <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <encoding.type>UTF-8</encoding.type>
+
+        <project.build.sourceEncoding>${encoding.type}</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>${encoding.type</project.reporting.outputEncoding>
+        <file.encoding>${encoding.type}</file.encoding>
 
         <maven.compiler.source>16</maven.compiler.source>
         <maven.compiler.target>16</maven.compiler.target>
@@ -99,6 +102,12 @@
             <groupId>com.miglayout</groupId>
             <artifactId>miglayout</artifactId>
             <version>3.7.4</version>
+        </dependency>
+
+        <dependency>
+            <groupId>net.bytebuddy</groupId>
+            <artifactId>byte-buddy</artifactId>
+            <version>1.14.9</version>
         </dependency>
 
     </dependencies>

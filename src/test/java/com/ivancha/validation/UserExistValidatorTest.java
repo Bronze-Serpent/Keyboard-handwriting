@@ -1,11 +1,7 @@
 package com.ivancha.validation;
 
-import com.ivancha.dto.UserCreateDto;
-import com.ivancha.dto.UserReadDto;
-import com.ivancha.dto.UserReferring;
 import com.ivancha.entity.User;
 import com.ivancha.repository.UserRepository;
-import com.ivancha.validation.impl.FreeUsernameValidator;
 import com.ivancha.validation.impl.UserExistValidator;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -35,14 +31,7 @@ public class UserExistValidatorTest {
         doReturn(Optional.of(new User()))
                 .when(userRepository).findById(userId);
 
-        var data = new UserReferring() {
-            @Override
-            public Integer userId() {
-                return userId;
-            }
-        };
-
-        var validResult = userExistValidator.isValid(data, null);
+        var validResult = userExistValidator.isValid(userId, null);
 
         assertThat(validResult).isTrue();
     }
@@ -54,14 +43,7 @@ public class UserExistValidatorTest {
         doReturn(Optional.empty())
                 .when(userRepository).findById(userId);
 
-        var data = new UserReferring() {
-            @Override
-            public Integer userId() {
-                return userId;
-            }
-        };
-
-        var validResult = userExistValidator.isValid(data, null);
+        var validResult = userExistValidator.isValid(userId, null);
 
         assertThat(validResult).isFalse();
     }
