@@ -24,8 +24,3 @@ CREATE TABLE key_press_time (
     time            INT                NOT NULL,
     password_id     INT                NOT NULL         REFERENCES password (id) ON DELETE CASCADE
 );
-
-DROP TABLE key_press_time;
-DROP TABLE time_between_presses;
-DROP TABLE password;
-DROP TABLE users;
